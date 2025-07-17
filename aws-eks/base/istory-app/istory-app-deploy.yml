@@ -33,7 +33,7 @@ spec:
                     'until mysqladmin ping -u ${MYSQL_USER} -p${MYSQL_PASSWORD} -h istory-db-lb; do echo waiting for database; sleep 2; done;']
       containers:
         - name: istory
-          image: <your-docker-hub-account-id>/istory:latest # 변경필요
+          image: dangtong76/istory:latest # 변경필요
           envFrom:
             - configMapRef:
                 name: istory-app-config
