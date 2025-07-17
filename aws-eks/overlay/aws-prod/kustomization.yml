@@ -1,7 +1,8 @@
 resources:
   - ../../base/istory-app
+  - ../../base/istory-db
 
-namespace: istory-prod
+namespace: istory-dev
 
 patches:
   - path: patch-lb-annotations.yml
@@ -25,7 +26,7 @@ secretGenerator:
 
 images:
   # base/istory-app/istory-app-deploy.yml 내의 이미지 이름과 동일해야 변경됨
-  - name: dangtong76/istory # 변경필요
+  - name: <your-docker-hub-account-id>/istory # 변경필요
     newTag: latest
 
 generatorOptions:
