@@ -8,3 +8,10 @@ metadata:
     istory.io/infra: aws
 spec:
   replicas: 5
+  template:
+    spec:
+      initContainers:
+        - name: check-mysql-ready
+          command: ['sh',
+                    '-c',
+                    'until mysqladmin ping -u ${MYSQL_USER} -p${MYSQL_PASSWORD} -h cwave-rds.cxqoe466wnup.ap-northeast-2.rds.amazonaws.com:3306; do echo waiting for database; sleep 2; done;']
